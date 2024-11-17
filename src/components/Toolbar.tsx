@@ -1,18 +1,25 @@
 import React from "react";
 
-interface ToolbarProps {
-    setColor: (color: string) => void;
-    setLineWidth: (width: number) => void;
-}
+const Toolbar: React.FC = () => {
+    const tools = ["Brush", "Eraser", "Fill", "Select", "Move"];
 
-const Toolbar: React.FC<ToolbarProps> = ({ setColor, setLineWidth }) => {
     return (
-        <div style={{ display: "flex", gap: "10px", padding: "10px" }}>
-            <button onClick={() => setColor("black")}>Black</button>
-            <button onClick={() => setColor("red")}>Red</button>
-            <button onClick={() => setColor("blue")}>Blue</button>
-            <button onClick={() => setLineWidth(2)}>Thin</button>
-            <button onClick={() => setLineWidth(5)}>Thick</button>
+        <div style={{ width: "60px", backgroundColor: "#2e2e2e", color: "white", padding: "10px" }}>
+            {tools.map((tool) => (
+                <div
+                    key={tool}
+                    style={{
+                        margin: "15px 0",
+                        textAlign: "center",
+                        cursor: "pointer",
+                        border: "1px solid #555",
+                        borderRadius: "5px",
+                        padding: "5px",
+                    }}
+                >
+                    {tool}
+                </div>
+            ))}
         </div>
     );
 };
